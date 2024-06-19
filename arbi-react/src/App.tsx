@@ -19,12 +19,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import moment from "moment";
+import config from "./config";
 
 interface priceDataType {
   [key: string]: { [key: string]: number } | null;
 }
 
-const socket = io("http://localhost:3334");
+const socket = io(config["baseUrl"]);
 
 function App() {
   const [priceData, setPriceData] = useState<priceDataType>({});
